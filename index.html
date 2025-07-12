@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/logo.png" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>خدمة زيتون - MTN</title>
+    <style></style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="container">
+          <div class="navbar-brand">
+            <img src="./images/logo.png" alt="logo" />
+          </div>
+          <div class="logo">
+            <img src="./images/MTNLOGO.png" alt="MTNLOGO" />
+          </div>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="container">
+          <h1>استمتع إلى أفضل برامج البودكاست والمزيد مع زيتون</h1>
+          <p>
+            في زمن التحديات، تقدم لك منصة زيتون الدعم والمعلومة والإلهام. من
+            الصحة النفسية إلى الأخبار اليومية والرياضة، كل شيء مصمم لمساعدتك في
+            طريق الأمل.
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="container">
+          <div class="title">
+            <p>أدخل رقم هاتفك المحمول</p>
+          </div>
+          <input
+            type="tel"
+            id="phone"
+            class="input-field"
+            placeholder="رقم الهاتف"
+          />
+          <div id="error" class="error-message"></div>
+
+          <button class="subscribe-btn" onclick="showPopup()">إشترك</button>
+
+          <div class="note">
+            <p>
+            مرحبا بك في خدمة زيتون. سعر الخدمة هو 600 ج.س/كل يوم (شاملة الضريبة). لالغاء الاشتراك ارسل C1 الى 5263
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="popup" id="popup">
+        <div class="container">
+          <h3>تم الاشتراك بنجاح!</h3>
+          <p>أهلاً بك في خدمة زيتون. استمتع بمحتوى مميز كل يوم.</p>
+          <button onclick="hidePopup()">تم</button>
+        </div>
+      </div>
+
+      <div class="background">
+        <img src="./images/music.png" alt="music" />
+        <img src="./images/music.png" alt="music" />
+        <img src="./images/music.png" alt="music" />
+      </div>
+    </main>
+
+    <script>
+      function showPopup() {
+        const phoneInput = document.getElementById("phone").value.trim();
+        const error = document.getElementById("error");
+
+        if (phoneInput === "") {
+          error.textContent = "رقم الهاتف يجب ألا يكون فارغا";
+          error.classList.add("show")
+          return;
+        }
+        if (!/^09\d{8}$/.test(phoneInput)) {
+          error.textContent = "صيغة الرقم خاطئة";
+          error.classList.add("show")
+          return;
+        }
+
+        error.textContent = "";
+
+        // document.body.classList.add("shadow");
+        // document.getElementById("popup").classList.add("show");
+      }
+
+      function hidePopup() {
+        document.getElementById("popup").classList.remove("show");
+      }
+    </script>
+  </body>
+</html>
